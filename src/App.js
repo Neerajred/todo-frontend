@@ -7,6 +7,7 @@ import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
 import Profile from './components/Profile';
 import ProtectedRoute from './components/ProtectedRoute';
+import EditTodo from './components/EditTodo';
 
 const App = () => {
   return (
@@ -39,6 +40,7 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/todos/:id" element={<EditTodo />} />
       </Routes>
     </Router>
   );

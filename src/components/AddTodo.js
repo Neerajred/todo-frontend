@@ -17,17 +17,31 @@ const AddTodo = () => {
   };
 
   return (
-    <div>
-      <h2>Add Todo</h2>
-      <form onSubmit={handleAdd}>
-        <textarea placeholder="Task" onChange={(e) => setTask({ ...task, task: e.target.value })} />
-        <select onChange={(e) => setTask({ ...task, status: e.target.value })}>
-          <option value="pending">Pending</option>
-          <option value="completed">Completed</option>
-        </select>
-        <button type="submit">Add Task</button>
-      </form>
+    <div className="container mt-5">
+  <h2 className="text-center">Add Todo</h2>
+  <form onSubmit={handleAdd} className="mt-4">
+    <div className="mb-3">
+      <textarea 
+        className="form-control" 
+        placeholder="Task" 
+        rows="3" 
+        onChange={(e) => setTask({ ...task, task: e.target.value })} 
+      />
     </div>
+    <div className="mb-3">
+      <select 
+        className="form-select" 
+        onChange={(e) => setTask({ ...task, status: e.target.value })}
+      >
+        <option value="pending">Pending</option>
+        <option value="in progress">In Progress</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+    <button type="submit" className="btn btn-primary">Add Task</button>
+  </form>
+</div>
+
   );
 };
 

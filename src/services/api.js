@@ -64,6 +64,7 @@ export const addTodo = async (data) => {
 };
 
 export const updateTodo = async (id, data) => {
+  console.log(data)
   const response = await fetch(`${API_URL}/todos/${id}`, {
     method: 'PUT',
     headers: {
@@ -104,3 +105,34 @@ export const updateProfile = async (data) => {
   });
   return handleResponse(response);
 };
+
+export const updateProfilePassword = async (data) => {
+  const response = await fetch(`${API_URL}/profile/password`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${getToken()}`,
+    },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(response);
+};
+
+// Fetch todo by ID
+export const fetchTodoById = async (id) => {
+  const response = await fetch(`${API_URL}/todos/${id}`, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to fetch todo');
+  }
+
+  return await response.json();
+};
+
+

@@ -27,19 +27,24 @@ const TodoList = () => {
   };
   console.log(todos);
   return (
-    <div>
-      <h2>Your Todos</h2>
-      <Link to="/add-todo">Add New Todo</Link>
-      <ul>
-        {todos.map(todo => (
-          <li key={todo.id}>
-            {todo.task} - {todo.status}
-            <button onClick={() => handleDelete(todo.id)}>Delete</button>
-            <Link to={`/edit-todo/${todo.id}`}>Edit</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <div className="container mt-5">
+  <h2 className="text-center">Your Todos</h2>
+  <Link to="/add-todo" className="btn btn-primary mb-3">Add New Todo</Link>
+  <ul className="list-group">
+    {todos.map(todo => (
+      <li key={todo.id} className="list-group-item d-flex justify-content-between align-items-center">
+        <span>
+          {todo.task} - <span className={`badge ${todo.status === 'Completed' ? 'bg-success' : 'bg-warning'}`}>{todo.status}</span>
+        </span>
+        <div>
+          <button onClick={() => handleDelete(todo.id)} className="btn btn-danger btn-sm me-2">Delete</button>
+          <Link to={`/todos/${todo.id}`} className="btn btn-secondary btn-sm">Edit</Link>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
   );
 };
 
