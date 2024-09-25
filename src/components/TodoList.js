@@ -34,11 +34,11 @@ const TodoList = () => {
     {todos.map(todo => (
       <li key={todo.id} className="list-group-item d-flex justify-content-between align-items-center">
         <span>
-          {todo.task} - <span className={`badge ${todo.status === 'Completed' ? 'bg-success' : 'bg-warning'}`}>{todo.status}</span>
+          {todo.task} - <span className={`badge ${todo.status === 'completed' ? 'bg-success' : 'bg-warning'}`}>{todo.status}</span>
         </span>
         <div>
           <button onClick={() => handleDelete(todo.id)} className="btn btn-danger btn-sm me-2">Delete</button>
-          <Link to={`/todos/${todo.id}`} className="btn btn-secondary btn-sm">Edit</Link>
+          <Link to={`/todos/${todo.id}`} className="btn btn-secondary btn-sm ml-2">Edit</Link>
         </div>
       </li>
     ))}

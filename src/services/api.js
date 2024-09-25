@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5500'; // Replace with your backend URL
+const API_URL = "https://todo-backend-hpch.onrender.com"; // Replace with your backend URL
 
 // Helper to get token from localStorage
 const getToken = () => localStorage.getItem('token');

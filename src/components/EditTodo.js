@@ -33,7 +33,7 @@ const EditTodo = () => {
 
     try {
       await updateTodo(id, { status });
-      navigate('/todos'); // Navigate back to the todo list
+      navigate('/todos'); 
     } catch (err) {
       setError('Failed to update todo status');
     }
